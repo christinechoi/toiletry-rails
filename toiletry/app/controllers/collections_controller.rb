@@ -5,6 +5,8 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
+    @collection.items.build
+
   end
 
   def create
@@ -33,12 +35,12 @@ class CollectionsController < ApplicationController
   end
 
 
-  
+
 
 private
 
 def collection_params
-  params.require(:collection).permit(:title, :user_id)
+  params.require(:collection).permit(:title, :user_id, item_attributes: [:name, :quantity, :description])
 end
 
 
