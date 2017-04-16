@@ -1,4 +1,19 @@
 <h1>Collection#show</h1>
 
-<h2>forever</h2>
+<h2><%= @collection.title %></h2>
+
+<br>
+<br>
+
+<h2>Add Item to Collection:</h2>
+
+<%= form_for @item do |f| %>
+  <%= f.collection_select :brand, Brand.all, :id, :name %>
+  <%= f.text :name %>
+  <%= f.text_area :description %>
+  <%= f.text :quantity %>
+  <%= f.submit %>
+<% end %>
+
+
 <p>Find me in app/views/collection/show.html.erb</p>
