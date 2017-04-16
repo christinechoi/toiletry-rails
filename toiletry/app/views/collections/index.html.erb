@@ -1,0 +1,15 @@
+<h1>Collection#index</h1>
+
+
+<h2>Your collections:</h2><br>
+
+<% @collections.each do |collection| %>
+  <%= link_to '<%= collection.name %>', collection_path %>
+
+<% end %>
+
+
+Create New Collection
+
+
+<p>Find me in app/views/collection/index.html.erb</p>
