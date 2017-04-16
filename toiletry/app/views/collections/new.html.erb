@@ -1,2 +1,9 @@
 <h1>Collection#new</h1>
+
+
+<%= form_for @collection do |f| %>
+  Collection Name: <%= f.text_field :title %>
+  <%= f.submit %>
+<% end %>
+
 <p>Find me in app/views/collection/new.html.erb</p>

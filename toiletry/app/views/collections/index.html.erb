@@ -4,12 +4,12 @@
 <h2>Your collections:</h2><br>
 
 <% @collections.each do |collection| %>
-  <%= link_to '<%= collection.name %>', collection_path %>
+  <%= link_to "#{collection.title}", collection_path(collection) %><br>
 
 <% end %>
 
-
-Create New Collection
+<br>
+<%= link_to 'Create New Collection', new_collection_path %>
 
 
 <p>Find me in app/views/collection/index.html.erb</p>
