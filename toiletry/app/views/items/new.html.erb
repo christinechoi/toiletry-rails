@@ -1,2 +1,39 @@
 <h1>Item#new</h1>
+
+Create a New Item: <br>
+
+<%= form_for @item do |f| %>
+  <%= f.label "Name" %><br>
+  <%= f.text_field :name %><br>
+  Brand:
+  <br>
+  <br>
+  <br>
+
+
+
+  <%= f.text_field :brand, list: "brands_autocomplete" %>
+  <datalist id="brands_autocomplete">
+    <%= Brand.all.each do |brand| %>
+      <option value="<%= brand.name %>">
+    <% end %>
+  </datalist>
+
+  <br>
+  <br>
+  <br>
+  <%= f.label "Description" %><br>
+  <%= f.text_area :description %><br>
+  <%= f.label "Quantity" %><br>
+  <%= f.text_field :quantity %><br>
+
+
+  <%= f.submit %>
+<% end %>
+
+
+
+
 <p>Find me in app/views/item/new.html.erb</p>
+
+

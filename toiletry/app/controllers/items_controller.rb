@@ -2,6 +2,8 @@ class ItemsController < ApplicationController
  
   def new
     @item = Item.new
+
+
   end
 
   def index
@@ -29,7 +31,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:brand_id, :name, :description, :quantity)
+    params.require(:item).permit(:name, :description, :quantity, :brand_ids =>[])
   end
+
 
 end
