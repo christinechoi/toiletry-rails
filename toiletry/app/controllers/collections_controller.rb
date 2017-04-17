@@ -5,7 +5,7 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
-    @collection.items.build
+    #@collection.items.build(quantity: '1')
 
   end
 

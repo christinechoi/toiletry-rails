@@ -2,10 +2,15 @@
 
 <h2>Collection: <%= @collection.title %></h2>
 
+  <%= @collection.items.each do |item| %>
+    <%= item.id %> blah blah blah
+    
+  <% end %>
+
 <br>
 <br>
 
-<h2>Add Item to Collection:</h2>
+<h2><%= link_to 'Add Item to Collection', new_item_path %></h2>
 form_for @item here?
 
 
