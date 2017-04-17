@@ -8,5 +8,4 @@ class Collection < ApplicationRecord
      self.items << Item.find_or_create_by(name: name)
   end
 
-
 end

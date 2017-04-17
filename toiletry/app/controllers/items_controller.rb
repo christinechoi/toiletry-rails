@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
  
   def new
     @item = Item.new
-
-
+    @item.build_brand
   end
+
 
   def index
     @item = Item.all
@@ -12,10 +12,19 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
+    
+    if @item.save
+      # binding.pry
+      redirect_to item_path(@item)
+    else
+      # binding.pry
+      redirect_to collections_path
+    end
   end
 
   def show
+    @item = Item.find(params[:id])
+    #@collection = Collection.find(#id: 1)
   end
 
   def edit
@@ -31,7 +40,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :quantity, :brand_ids =>[])
+    params.require(:item).permit(:name, :description, :quantity, brand_attributes: [:id, :name])
   end
 
 

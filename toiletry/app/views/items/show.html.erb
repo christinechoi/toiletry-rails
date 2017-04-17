@@ -1,2 +1,12 @@
 <h1>Item#show</h1>
+
+Brand: <%= @item.brand.name %><br>
+Name: <%= @item.name %><br>
+Description: <%= @item.description %><br>
+Quantity: <%= @item.quantity %><br>
+
+<br>
+<br>
+<%= link_to 'Back to All Collections', collections_path %>
+
 <p>Find me in app/views/item/show.html.erb</p>
