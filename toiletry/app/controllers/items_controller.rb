@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     
     if @item.save
       # binding.pry
-      redirect_to item_path(@item)
+      redirect_to collection_path(@item.collection_id)
     else
       # binding.pry
       redirect_to collections_path

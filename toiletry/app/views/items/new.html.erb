@@ -8,19 +8,18 @@
 
 
 Select collection: 
-<%= f.collection_select :collection, Collection.all, :id, :title %>
+<%= f.collection_select :collection_id, Collection.all, :id, :title %>
 <br>
 <br>
 
 
 Select brand:
-<%= f.text_field :brand, list: "brands_autocomplete" %>
-  <datalist id="brands_autocomplete">
-    <%= Brand.all.each do |brand| %>
-      <option value="<%= brand.name %>">
-    <% end %>
-  </datalist><br>
-  <br>
+
+<%= f.collection_select :brand_id, Brand.all, :id, :name %>
+
+<br>
+<br>
+
   Or create new brand: 
   <br>
   <br>
@@ -50,6 +49,7 @@ Select brand:
 
 <br><br>
 <%= link_to 'Cancel', collections_path %>
+
 
 <p>Find me in app/views/item/new.html.erb</p>
 
