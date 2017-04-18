@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     @item.build_brand
+    @item.build_collection
   end
 
 
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      binding.pry
+      # binding.pry
       redirect_to item_path(@item)
     else
       # binding.pry
@@ -40,7 +41,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :quantity, brand_attributes: [:id, :name])
+    params.require(:item).permit(:name, :description, :quantity, brand_attributes: [:id, :name], collection_attributes: [:id, :title])
   end
 
 

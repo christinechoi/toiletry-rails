@@ -15,7 +15,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     
     if @collection.save
-      binding.pry
+      # binding.pry
       redirect_to collection_path(@collection)
     else
       binding.pry

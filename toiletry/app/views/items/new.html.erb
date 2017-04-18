@@ -1,8 +1,16 @@
 <h1>Item#new</h1>
 
-Create a New Item <br><br>
+<h2>Create a New Item</h2>
+<br>
+<br>
 
 <%= form_for @item do |f| %>
+
+
+Select collection: 
+<%= f.collection_select :collection, Collection.all, :id, :title %>
+<br>
+<br>
 
 
 Select brand:
@@ -17,27 +25,19 @@ Select brand:
   <br>
   <br>
 
-
-
-
-
-
-
-
-
   <%= f.fields_for :brand do |brand| %>
-    <%= brand.label "Brand" %>
+    <%= brand.label "Brand: " %>
     <%= brand.text_field :name %>
   <% end %>
   <br>
   <br>
-  <%= f.label "Name" %>
+  <%= f.label "Item Name: " %>
   <%= f.text_field :name %><br>
 
   <br>
-  <%= f.label "Description" %><br>
+  <%= f.label "Description: " %><br>
   <%= f.text_area :description %><br>
-  <%= f.label "Quantity" %>
+  <%= f.label "Quantity: " %>
   <%= f.text_field :quantity %><br>
   <br>
   <br>
