@@ -14,7 +14,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
-      # binding.pry
+      binding.pry
       redirect_to item_path(@item)
     else
       # binding.pry

@@ -4,6 +4,27 @@ Create a New Item <br><br>
 
 <%= form_for @item do |f| %>
 
+
+Select brand:
+<%= f.text_field :brand, list: "brands_autocomplete" %>
+  <datalist id="brands_autocomplete">
+    <%= Brand.all.each do |brand| %>
+      <option value="<%= brand.name %>">
+    <% end %>
+  </datalist><br>
+  <br>
+  Or create new brand: 
+  <br>
+  <br>
+
+
+
+
+
+
+
+
+
   <%= f.fields_for :brand do |brand| %>
     <%= brand.label "Brand" %>
     <%= brand.text_field :name %>

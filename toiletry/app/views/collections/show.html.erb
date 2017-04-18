@@ -3,7 +3,7 @@
 <h2>Collection: <%= @collection.title %></h2>
 
   <% @collection.items.each do |item| %>
-    <%= item.id %>.  <%= item.name %><br>
+    <%= item.id %>.<%= item.name %><br>
     Quantity: <%= item.quantity %>
     
   <% end %>

@@ -5,7 +5,8 @@ class CollectionsController < ApplicationController
 
   def new
     @collection = Collection.new
-    #@collection.items.build(quantity: '1')
+    # @item.build_brand
+    # @collection.build_item
 
   end
 
@@ -14,10 +15,13 @@ class CollectionsController < ApplicationController
     @collection = Collection.new(collection_params)
     
     if @collection.save
-      # binding.pry
+      binding.pry
       redirect_to collection_path(@collection)
     else
+      binding.pry
       render 'new'
+      redirect_to collections_path
+
     end
   end
 
@@ -40,7 +44,7 @@ class CollectionsController < ApplicationController
 private
 
 def collection_params
-  params.require(:collection).permit(:title, :user_id, item_attributes: [:name, :quantity, :description])
+  params.require(:collection).permit(:title, :user_id, item_attributes: [:id, :name, :quantity, :description])
 end
 
 
