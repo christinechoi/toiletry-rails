@@ -8,8 +8,8 @@ Collection id: <%= @item.collection_id %>
 
 <br>
 <br>
-<%= link_to 'Back to All Collections', collections_path %>
+<%= link_to 'Back to Collection', collection_path(@item.collection_id) %>
 <br><br>
-<%= link_to 'Cancel', collections_path %>
+<%= link_to 'Back to All Collections', collections_path %>
 
 <p>Find me in app/views/item/show.html.erb</p>
