@@ -8,15 +8,16 @@ class ItemsController < ApplicationController
 
 
   def index
-    @item = Item.all
+    @items = Item.all
   end
 
   def create
+    # raise params.inspect
     @item = Item.new(item_params)
     
     if @item.save
       # binding.pry
-      redirect_to collection_path(@item.collection_id)
+      redirect_to item_path(@item)
     else
       # binding.pry
       redirect_to collections_path
@@ -41,7 +42,7 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:name, :description, :quantity, brand_attributes: [:id, :name], collection_attributes: [:id, :title])
+    params.require(:item).permit(:collection_id, :name, :description, :quantity, brand_attributes: [:id, :name])#, collection_attributes: [:id, :title]
   end
 
 

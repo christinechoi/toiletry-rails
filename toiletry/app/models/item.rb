@@ -14,9 +14,9 @@ class Item < ApplicationRecord
     
   end
 
-  def collection_attributes=(collection)
-    # binding.pry
-    self.collection = Collection.find_by(id: collection["id"])
+  def collection_attributes=(collection_attributes)
+    raise collection_attributes.inspect
+    self.collection = Collection.find_by(id: collection_attributes["id"])
     self.collection.update(collection)
   end
 

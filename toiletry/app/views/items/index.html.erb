@@ -1,7 +1,15 @@
 <h1>Item#index</h1>
 
 
-gaa
+<% @items.each do |item| %>
+  Name: <%= item.name %><br>
+  Brand: <%= item.brand %><br>
+  Collection: <%= item.collection %><br>
+  Description: <%= item.description %><br>
+  Quantity: <%= item.quantity %><br>
+  Collection id: <%= item.collection_id %>
+  <br>
+<% end %>
 
 <%= link_to 'Back to Collections', collections_path %>
 <p>Find me in app/views/item/index.html.erb</p>

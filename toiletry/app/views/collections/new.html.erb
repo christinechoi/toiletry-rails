@@ -6,7 +6,11 @@
   <%= f.text_field :title %>
 
   <h2>Add Item to Collection:</h2>
-  <%= f.fields_for :items do |item| %>
+  <%= f.fields_for :item do |item| %>
+    <%= item.label :brand %>
+    <%= item.text_field :brand %>
+    <br>
+
     <%= item.label :name %>
     <%= item.text_field :name %>
     <br>
