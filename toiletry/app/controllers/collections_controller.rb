@@ -34,6 +34,9 @@ class CollectionsController < ApplicationController
 
   def show
      @collection = Collection.find(params[:id])
+     @collection_items = Array.new 
+     @collection_items += @collection.items 
+
   end
 
   def edit

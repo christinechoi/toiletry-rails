@@ -2,13 +2,12 @@
 
 <h2>Collection: <%= @collection.title %></h2>
 
-  <% @collection.items.each do |item| %>
-    
-    Brand: <%= item.brand.name %><br>
-    Name: <%= item.name %><br>
-    Quantity: <%= item.quantity %><br><br>
-    
-  <% end %>
+  <% @collection_items.each_with_index do |item, index| %>
+    <%= index + 1 %>. <%= link_to "#{item.brand.name} #{item.name}", item_path(item) %><br>
+  <% end%>
+
+
+
 
 <br>
 <br>
