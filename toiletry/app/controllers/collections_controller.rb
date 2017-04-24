@@ -6,19 +6,30 @@ class CollectionsController < ApplicationController
   def new
     @collection = Collection.new
     # @item.build_brand
-    @collection.build_item
-    @collection.build.build_brand
+    #@collection.build_item
+    #@collection.build.build_brand
 
   end
 
   def create
-    items = params[:collection][:items]
-    @collection = current_user.collection.create(name: params[:collection][:name])#Collection.new(collection_params)
-      
-    items.each do |item|
-      brand = Brand.find_or_create_by(name: item.brand.name)
-      @collection.items << brand.items.create(name: item.name, collection_id: item.collection_id)
-    end
+    @items = params[:collection][:item]
+    @collection = current_user.collections.create(title: params[:collection][:title])#Collection.new(collection_params)
+      # binding.pry
+
+
+
+    # @items.each do |item|
+    #   brand = Brand.find_or_create_by(name: item.brand)
+    #   @collection.items << brand.items.create(name: item.name, collection_id: item.collection_id)
+    # end
+
+    #@item = Item.new(item_params)#params[:collection][:item])
+
+
+    @brand = Brand.find_or_create_by(name: @item["brand"])
+    @collection.items << @brand.items.create(name: @item["name"], collection_id: @item["collection_id"])
+
+
 
     if @collection.save
       binding.pry
