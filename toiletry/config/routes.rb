@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   
-  resources :collections, :brands, :items
+  resources :collections do
+    resources :items
+  end
+  
+
+  resources :brands
   
 
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }

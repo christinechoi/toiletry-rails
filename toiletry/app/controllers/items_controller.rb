@@ -8,7 +8,14 @@ class ItemsController < ApplicationController
 
 
   def index
-    @items = Item.all
+    
+
+    if params[:collection_id]
+      @items = Collection.find(params[:collection_id]).items
+    else
+      @items = Item.all
+    end
+
   end
 
   def create

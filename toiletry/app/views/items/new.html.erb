@@ -4,7 +4,10 @@
 <br>
 <br>
 
-<%= form_for @item do |f| %>
+<%= form_for([@collection, @item], :url => new_collection_item_path) do |f| %>
+
+
+
 
 
 Select collection: 
