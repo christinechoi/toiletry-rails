@@ -16,7 +16,7 @@ class CollectionsController < ApplicationController
     @collection = current_user.collections.create(title: params[:collection][:title])#Collection.new(collection_params)
       # binding.pry
 
-
+    raise params.inspect
 
     # @items.each do |item|
     #   brand = Brand.find_or_create_by(name: item.brand)
