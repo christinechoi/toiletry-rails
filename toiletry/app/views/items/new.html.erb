@@ -18,7 +18,10 @@ Select collection:
 
 Select brand:
 
-<%= f.collection_select :brand_id, Brand.all, :id, :name %>
+<%= f.collection_select :brand_id, Brand.all, :id, :name, :prompt => true %>
+
+
+
 
 <br>
 <br>
