@@ -7,7 +7,7 @@ class CollectionsController < ApplicationController
     @collection = Collection.new
     # @item.build_brand
     #@collection.build_item
-    #@collection.build.build_brand
+    # @collection.build.build_brand
 
   end
 
