@@ -26,8 +26,7 @@ class ItemsController < ApplicationController
       # binding.pry
       redirect_to collection_path(@item.collection_id)
     else
-      # binding.pry
-      redirect_to collections_path
+      render :new
     end
   end
 

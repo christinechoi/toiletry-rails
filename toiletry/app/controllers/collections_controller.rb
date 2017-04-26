@@ -12,30 +12,18 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @items = params[:collection][:item]
+    @item = params[:collection][:item]
     @collection = current_user.collections.create(title: params[:collection][:title])#Collection.new(collection_params)
       # binding.pry
-
-    raise params.inspect
-
-    # @items.each do |item|
-    #   brand = Brand.find_or_create_by(name: item.brand)
-    #   @collection.items << brand.items.create(name: item.name, collection_id: item.collection_id)
-    # end
-
-    #@item = Item.new(item_params)#params[:collection][:item])
-
-
-    @brand = Brand.find_or_create_by(name: @item["brand"])
-    @collection.items << @brand.items.create(name: @item["name"], collection_id: @item["collection_id"])
-
+    @brand = Brand.find_or_create_by(name: @item[:brand])
+    @collection.items << @brand.items.create(name: @item[:name], collection_id: @item[:collection_id])
 
 
     if @collection.save
-      binding.pry
+      # binding.pry
       redirect_to collection_path(@collection)
     else
-      binding.pry
+      # binding.pry
       render 'new'
       redirect_to collections_path
     end
