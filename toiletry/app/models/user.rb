@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :collections
+  has_many :items, through: :collections
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable 
   devise :database_authenticatable, :registerable,
@@ -14,5 +15,6 @@ class User < ApplicationRecord
       user.password = Devise.friendly_token[0,20]
     end
   end
+
 
 end

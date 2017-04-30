@@ -4,6 +4,8 @@
 <br>
 <br>
 
+
+ 
 <%= form_for([@collection, @item], :url => collection_items_path) do |f| %>
 
 <% if @item.errors.any? %>
@@ -32,9 +34,15 @@ Select collection:
 Select brand:
 
 <%= f.collection_select :brand_id, Brand.all, :id, :name, :prompt => true %>
-
-
-
+<!-- 
+<%= f.text_field :brand, list: "brands_autocomplete" %>
+  <datalist id="brands_autocomplete">
+    <%= Brand.all.each do |brand| %>
+      <option value="<%= brand.name %>">
+    <% end %>
+    <textarea name="brand[name]"></textarea>
+  </datalist>
+ -->
 
 <br>
 <br>
@@ -47,6 +55,8 @@ Select brand:
     <%= brand.label "Brand: " %>
     <%= brand.text_field :name %>
   <% end %>
+
+
   <br>
   <br>
   <%= f.label "Item Name: " %>

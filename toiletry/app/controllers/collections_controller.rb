@@ -32,6 +32,7 @@ class CollectionsController < ApplicationController
 
 
   def show
+     # binding.pry
      @collection = Collection.find(params[:id])
      @collection_items = Array.new 
      @collection_items += @collection.items 

@@ -3,9 +3,11 @@ class BrandsController < ApplicationController
   end
 
   def new
+    @brand = Brand.new
   end
 
   def create
+    @brand = Brand.new(brand_params)
   end
 
   def show
@@ -18,5 +20,9 @@ class BrandsController < ApplicationController
   end
 
   def destroy
+  end
+
+   def item_params
+    params.require(:brand).permit(:name)
   end
 end
