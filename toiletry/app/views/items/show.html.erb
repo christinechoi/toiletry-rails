@@ -1,6 +1,8 @@
 <h1>Item#show</h1>
 
+<% if @item.brand %>
 Brand: <%= @item.brand.name %><br>
+<% end %>
 Name: <%= @item.name %><br>
 Description: <%= @item.description %><br>
 Quantity: <%= @item.quantity %><br>
@@ -9,7 +11,11 @@ Collection id: <%= @item.collection_id %>
 <br>
 <br>
 <%= link_to 'Back to Collection', collection_path(@item.collection_id) %>
-<br><br>
+<br>
+<br>
+<%= link_to 'Edit Item', edit_collection_item_path %>
+<br>
+<br>
 <%= link_to 'Back to All Collections', collections_path %>
 
 <p>Find me in app/views/item/show.html.erb</p>
