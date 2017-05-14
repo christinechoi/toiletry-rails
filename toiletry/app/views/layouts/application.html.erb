@@ -1,17 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Toiletry</title>
-    <%= csrf_meta_tags %>
+<html lang="en">
+<head>
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<style>
+.bg-1 {  
+    background-color: #ffdbc6; /* Green */ /* there is no div with .bg-1*/
+    color: #352e2a;
+}
 
-  <body>
+.bg-2 { 
+    background-color: #b5f0ff; 
+    color: #352e2a;
+}
 
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-    <%= yield %>
-  </body>
+.container-fluid {
+    padding-left: 70px;
+    padding-bottom: 70px;
+}
+
+</style>
+
+<body>
+
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">TOILETRY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">MY PROFILE</a></li>
+        <li><a href="#">WHAT</a></li>
+        <li><a href="#">WHERE</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+<!-- First Container --><!-- 
+<div class="container-fluid bg-1 text-center">
+  <h3>Toiletry</h3>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwGLWST_csHkA_UZ2eZIQmchweb-cDgITFtQUGa5ixfRQBcIam" class="img-circle" alt="Skincare">
+</div>
+ -->
+
+ <div class="container-fluid bg-1 text-left">
+  <h3>What Am I?</h3>
+  <%= yield %>
+  <p>Lorem ipsum..</p>
+</div>
+
+<div class="container-fluid bg-2 text-center">
+  <h3>Where To Find Me?</h3>
+  <p>Lorem ipsum..</p>
+</div>
+
+  
+
+
+</body>
 </html>
