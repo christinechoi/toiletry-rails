@@ -24,8 +24,10 @@ class CollectionsController < ApplicationController
       redirect_to collection_path(@collection)
     else
       # binding.pry
-      render 'new'
-      redirect_to collections_path
+      flash[:error] = "Collection must have a name."
+      
+      # binding.pry
+      redirect_to new_collection_path
     end
 
   end

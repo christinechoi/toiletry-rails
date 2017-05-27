@@ -43,6 +43,7 @@ class ItemsController < ApplicationController
       # binding.pry
       redirect_to collection_path(@item.collection_id)
     else
+      flash[:error] = "Item must have a brand."
       render :new
     end
   end
