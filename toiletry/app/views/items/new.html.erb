@@ -16,8 +16,8 @@
     </h2>
  
     <ul>
-    <% @item.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% @item.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
     <% end %>
     </ul>
   </div>
@@ -25,8 +25,12 @@
 
 
 
+
+
 Select collection: 
-<%= f.collection_select :collection_id, Collection.all, :id, :title %>
+<%= f.select :collection_id, Collection.all.collect {|clx| [clx.title, clx.id]}, :selected => params[:collection_id] %>
+
+
 <br>
 <br>
 
