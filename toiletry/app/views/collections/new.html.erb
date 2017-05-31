@@ -19,34 +19,47 @@
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-
+  <br>
 <%= form_for @collection do |f| %>
-  <%= f.label :title %>
+  <%= f.label "Collection Name: " %>
   <%= f.text_field :title %>
 
-  <h2>Add Item to Collection:</h2>
+  <!-- <h3>Add Item to Collection:</h3>
   <%= f.fields_for :item do |item| %>
-    <%= item.label :brand %>
+    <br>
+    <%= item.label "Item Name: " %>
+    <%= item.text_field :name %>
+    <br>
+    <%= item.label "Description: " %>
+    <%= item.text_area :description %>
+    <br>
+    <%= item.label "Quantity: " %>
+    <%= item.text_field :quantity %>
+    <br>
+    <br>
+    <%= item.label "Select from existing brand: " %>
+    <%= f.collection_select :brand_ids, current_user.brands, :id, :name %>
+    <br>
+    <br>
+    <%= item.label "Or create new brand:" %>
     <%= item.text_field :brand %>
     <br>
 
-    <%= item.label :name %>
-    <%= item.text_field :name %>
-    <br>
-    <%= item.label :description %>
-    <%= item.text_area :description %>
-    <br>
-    <%= item.label :quantity %>
-    <%= item.text_field :quantity %>
-  <% end %>
+ -->  <% end %>
 
   <br>
   <br>
 
-  <%= f.submit %>
+  <%= f.submit "Create Collection", :class => "btn btn-default btn-med" %>
+
 <% end %>
 
 <br>
 <br>
-<%= link_to 'Cancel', collections_path %>
-<p>Find me in app/views/collection/new.html.erb</p>
+<h4><%= link_to 'Cancel', collections_path %></h4>
+<br>
+<br>
+<br>
+<br>
+
+
