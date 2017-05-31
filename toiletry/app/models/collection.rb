@@ -3,6 +3,8 @@ class Collection < ApplicationRecord
   has_many :items 
   has_many :brands, through: :items
 
+  validates :title, uniqueness: true
+
   accepts_nested_attributes_for :items, :reject_if => lambda { |a| a[:brand].blank? }, :allow_destroy => true
 
   def item_name=(name)
