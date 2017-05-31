@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :brand, optional: true
   belongs_to :collection, optional: true
 
+  validates :brand, presence: true
+
 # ---
 
 #   def item_name=(name)
