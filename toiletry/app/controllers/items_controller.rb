@@ -5,13 +5,11 @@ class ItemsController < ApplicationController
   def index 
     @collections = current_user.collections.uniq
     @items = current_user.items
-   
     if !params[:collection_id].blank?
       @items = Item.by_collection(params[:collection_id])
     else
       @items = Item.all
     end
-
   end
 
   def new
@@ -20,15 +18,15 @@ class ItemsController < ApplicationController
   end
 
   def create
-      @item = current_user.items.build(item_params)
-      if @item.save
-        binding.pry
-        redirect_to collection_path(@item.collection_id)
-      else
-        binding.pry
-        flash[:error] = "Sorry, please try again."
-        render :new
-      end
+    @item = current_user.items.build(item_params)
+    if @item.save
+      binding.pry
+      redirect_to collection_path(@item.collection_id)
+    else
+      binding.pry
+      flash[:error] = "Sorry, please try again."
+      render :new
+    end
   end
 
   def show
@@ -59,6 +57,4 @@ class ItemsController < ApplicationController
   def item_params
     params.require(:item).permit(:collection_id, :brand, :name, :description, :cost) 
   end
-
-
 end

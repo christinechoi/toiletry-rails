@@ -1,4 +1,5 @@
 class CollectionsController < ApplicationController
+  
   def index
     @collections = Collection.all 
   end
@@ -23,12 +24,6 @@ class CollectionsController < ApplicationController
      @collection_items += @collection.items 
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
     @collection = Collection.find(params[:id])
     @collection.destroy
@@ -38,6 +33,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :user_id, items_attributes: [:id, :name, :brand, :cost, :description])
+    params.require(:collection).permit(:title, :user_id)
   end
 end
