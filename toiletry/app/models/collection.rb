@@ -1,7 +1,7 @@
 class Collection < ApplicationRecord
-  belongs_to :user, optional: true
-  has_many :items 
-  has_many :brands, through: :items
+  # belongs_to :user, optional: true
+  has_many :items, inverse_of: :collection
+  has_many :users, through: :items
 
   validates :title, uniqueness: true
 

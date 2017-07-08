@@ -1,10 +1,9 @@
-<h1>Collection#index</h1>
-
 
 <h2>Your collections:</h2><br>
 
+
 <% @collections.each do |collection| %>
-  <%= link_to "#{collection.title}", collection_path(collection) %><br>
+  <h4><%= link_to "#{collection.title}", collection_path(collection) %><br></h4>
 
 <% end %>
 
@@ -12,5 +11,3 @@
 <a href="/collections/new" class="btn btn-default btn-lg">
   <span class="glyphicon glyphicon-pencil"></span> Create New Collection
 </a>
-
-<p>Find me in app/views/collection/index.html.erb</p>

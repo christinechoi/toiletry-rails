@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  has_many :collections
-  has_many :items, through: :collections
+  has_many :items
+  # has_many :brands, through: :items
+  has_many :collections, through: :items
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable 
   devise :database_authenticatable, :registerable,

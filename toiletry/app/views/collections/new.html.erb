@@ -1,65 +1,19 @@
 <h1>Collection#new</h1>
 
-<% if @collection.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@collection.errors.count, "error") %>
-      prohibited this item from being saved:
-    </h2>
- 
-    <ul>
-    <% @collection.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
 <div class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
 <% end %>
-  <br>
+<br>
+
 <%= form_for @collection do |f| %>
   <%= f.label "Collection Name: " %>
   <%= f.text_field :title %>
 
-  <!-- <h3>Add Item to Collection:</h3>
-  <%= f.fields_for :item do |item| %>
-    <br>
-    <%= item.label "Item Name: " %>
-    <%= item.text_field :name %>
-    <br>
-    <%= item.label "Description: " %>
-    <%= item.text_area :description %>
-    <br>
-    <%= item.label "Quantity: " %>
-    <%= item.text_field :quantity %>
-    <br>
-    <br>
-    <%= item.label "Select from existing brand: " %>
-    <%= f.collection_select :brand_ids, current_user.brands, :id, :name %>
-    <br>
-    <br>
-    <%= item.label "Or create new brand:" %>
-    <%= item.text_field :brand %>
-    <br>
-
- -->  <% end %>
-
-  <br>
-  <br>
-
   <%= f.submit "Create Collection", :class => "btn btn-default btn-med" %>
-
 <% end %>
 
-<br>
-<br>
-<h4><%= link_to 'Cancel', collections_path %></h4>
-<br>
-<br>
-<br>
-<br>
-
+<p>
+  <h4><%= link_to 'Cancel', collections_path %></h4>
+</p>
 

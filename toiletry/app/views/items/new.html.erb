@@ -1,89 +1,41 @@
-<h1>Item#new</h1>
-
 <h2>Create a New Item</h2>
-<br>
-<br>
 
-
- 
 <%= form_for([@collection, @item], :url => collection_items_path) do |f| %>
 
-<% if @item.errors.any? %>
-  <div id="error_explanation">
-    <h2>
-      <%= pluralize(@item.errors.count, "error") %>
-      prohibited this item from being saved:
-    </h2>
+<table class="item" cellspacing="0">
+  <tr>
+    <td><%= f.label "Collection:  " %></td>
+    <td><%= f.select :collection_id, Collection.all.collect {|clx| [clx.title, clx.id]}, :selected => params[:collection_id] %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label "Brand: " %></td>
+    <td><%= f.text_field :brand %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label "Name: " %></td>
+    <td><%= f.text_field :name %></td>
+  </tr>
+
+  <tr class="border">
+    <td><%= f.label "Description: " %></td>
+    <td><%= f.text_area :description, :size=>"19" %></td>
+  </tr>
+
+  <tr>
+    <td><%= f.label "Cost: " %></td>
+    <td><%= f.text_field :cost %></td>
+  </tr>
+  <br>
+</table>
+
+  <p>  
+    <%= f.submit "Create Item", :class => "btn btn-default btn-med" %>
+  </p>
+<% end %>
  
-    <ul>
-    <% @item.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
-    </ul>
-  </div>
-<% end %>
-
-
-
-
-
-Select collection: 
-<%= f.select :collection_id, Collection.all.collect {|clx| [clx.title, clx.id]}, :selected => params[:collection_id] %>
-
-
-<br>
-<br>
-
-
-Select brand:
-
-<%= f.collection_select :brand_id, Brand.all, :id, :name, :prompt => true %>
-<!-- 
-<%= f.text_field :brand, list: "brands_autocomplete" %>
-  <datalist id="brands_autocomplete">
-    <%= Brand.all.each do |brand| %>
-      <option value="<%= brand.name %>">
-    <% end %>
-    <textarea name="brand[name]"></textarea>
-  </datalist>
- -->
-
-<br>
-<br>
-
-  Or create new brand: 
-  <br>
-  <br>
-
-  <%= f.fields_for :brand do |brand| %>
-    <%= brand.label "Brand: " %>
-    <%= brand.text_field :name %>
-  <% end %>
-
-
-  <br>
-  <br>
-  <%= f.label "Item Name: " %>
-  <%= f.text_field :name %><br>
-
-  <br>
-  <%= f.label "Description: " %><br>
-  <%= f.text_area :description %><br>
-  <%= f.label "Quantity: " %>
-  <%= f.text_field :quantity %><br>
-  <br>
-  <br>
-  <br>
-
-  <%= f.submit %>
-
-
-<% end %>
-
-<br><br>
-<%= link_to 'Cancel', collections_path %>
-
-
-<p>Find me in app/views/item/new.html.erb</p>
-
+<p>
+  <%= link_to 'Cancel', collections_path %>
+</p>
 

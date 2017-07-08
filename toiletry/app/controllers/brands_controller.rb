@@ -1,5 +1,6 @@
 class BrandsController < ApplicationController
   def index
+    @brands = current_user.brands.all
   end
 
   def new
@@ -22,7 +23,7 @@ class BrandsController < ApplicationController
   def destroy
   end
 
-   def item_params
+  def item_params
     params.require(:brand).permit(:name)
   end
 end
