@@ -2,13 +2,17 @@
 
 Specs:
 - [x] Using Ruby on Rails for the project
-- [ ] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes) 
-- [ ] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)
-- [ ] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients)
+- [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)  -Collection has many Items; Brand has many Items
+- [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User)  -Item belongs to Collection; Item belongs to Brand
+- [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients) -Collection has many Brands through Items; Brand has many Collections through Items
 - [ ] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity)
+
 - [ ] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)
+
 - [ ] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)
-- [ ] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)
+
+- [x] Include a nested form writing to an associated model using a custom attribute writer (form URL, model name e.g. /recipe/new, Item)  -Creating an Item has Brand field which creates associated Brand
+
 - [x] Include signup (how e.g. Devise)
 - [x] Include login (how e.g. Devise)
 - [x] Include logout (how e.g. Devise)
