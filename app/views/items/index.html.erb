@@ -1,0 +1,24 @@
+
+<h3>All Items</h3>
+
+<p>
+  <div>
+    <h5> Filter By Collection: </h5>
+    <%= form_tag("/items", method: "get") do %>
+      <%= select_tag "collection_id", options_from_collection_for_select(@collections, "id", "title"), include_blank: 'All Items' %>
+      <%= submit_tag "Filter", :class => "btn btn-default btn-med" %>
+    <% end %>
+  </div>
+</p>
+
+<p>
+  <% @items.each do |item| %>
+    <%= link_to "#{item.brand} #{item.name}", collection_item_path(collection_id: item.collection_id, id: item.id) %><br>
+  <% end %>
+</p>
+
+<br>
+<p>
+  <%= link_to 'Back to Collections', collections_path %>
+</p>
+

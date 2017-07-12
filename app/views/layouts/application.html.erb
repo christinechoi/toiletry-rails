@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
+
+  <title>Bootstrap Theme Simply Me</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+
+<style>
+
+.btn {
+   background-color: red;
+     font:bold 14px Arial;
+     width:200;
+     height:100;
+     margin-top: 5px;
+     margin-bottom: 5px;
+     background-color: white;
+     display: inline-block;
+}
+
+.navbar {
+    background-color: #effeff; /* Green */ /* there is no div with .bg-1*/
+    color: #352e2a;
+}
+
+.bg-1 {  
+    background-color: #e3f1f7; /* Green */ /* there is no div with .bg-1*/
+    color: #352e2a;
+}
+
+.bg-2 { 
+    background-color: #fff3f2; 
+    color: #352e2a;
+}
+
+.container-fluid {
+    padding-left: 70px;
+    padding-bottom: 70px;
+}
+
+.item {
+    border-collapse: separate;
+    border-spacing: 0 5px;
+}
+
+</style>
+
+<body>
+
+
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="#">TOILETRY</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user %>
+        <li><%= link_to "My Profile", home_index_path %></li>
+        <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+        <% else %>
+        <li><%= link_to "Log In", new_user_session_path %></li>
+        <li><%= link_to "Sign Up", new_user_registration_path %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+  
+</nav>
+
+
+
+<!-- First Container --><!-- 
+<div class="container-fluid bg-1 text-center">
+  <h3>Toiletry</h3>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwGLWST_csHkA_UZ2eZIQmchweb-cDgITFtQUGa5ixfRQBcIam" class="img-circle" alt="Skincare">
+</div>
+ -->
+
+ <div class="container-fluid bg-1 text-left">
+    <br>
+    <br><!-- 
+    <% if flash[:notice] %>
+        <div id="flash_notice"><%= flash[:notice] %></div>
+    <% end %> -->
+<!-- 
+    <% if flash[:error] %>
+        <div id="flash_error"><%= flash[:error] %></div>
+    <% end %> -->
+  
+  <%= yield %>
+</div>
+
+  
+
+
+</body>
+</html>

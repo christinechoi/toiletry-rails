@@ -1,0 +1,19 @@
+<h1>Collection#new</h1>
+
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>"><%= value %></div>
+<% end %>
+<br>
+
+<%= form_for @collection do |f| %>
+  <%= f.label "Collection Name: " %>
+  <%= f.text_field :title %>
+
+  <%= f.submit "Create Collection", :class => "btn btn-default btn-med" %>
+<% end %>
+
+<p>
+  <h4><%= link_to 'Cancel', collections_path %></h4>
+</p>
+

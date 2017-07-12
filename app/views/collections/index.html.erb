@@ -1,0 +1,10 @@
+
+<h2>Your collections:</h2><br>
+
+<% @collections.each do |collection| %>
+  <h4><%= link_to "#{collection.title}", collection_path(collection) %></h4>
+<% end %><br>
+
+<a href="/collections/new" class="btn btn-default btn-lg">
+  <span class="glyphicon glyphicon-pencil"></span> Create New Collection
+</a>
