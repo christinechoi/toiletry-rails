@@ -3,12 +3,27 @@
 <div class="container">
   <% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>"><%= value %></div>
-<% end %>
+  <% end %>
 <br>
 
 <%= form_for @collection do |f| %>
   <%= f.label "Collection Name: " %>
   <%= f.text_field :title %>
+
+  <h3>Add Item to Collection:</h3>
+  <%= f.fields_for :items, @collection.items.build do |item_fields| %>
+    <br>
+    <%= item_fields.label "Item Name: " %>
+    <%= item_fields.text_field :name %>
+    <br>
+    <%= item_fields.label "Description: " %>
+    <%= item_fields.text_area :description %>
+    <br>
+    <br>
+    <%= item_fields.label "Or create new brand:" %>
+    <%= item_fields.text_field :brand %>
+    <br>
+  <% end %>
 
   <%= f.submit "Create Collection", :class => "btn btn-default btn-med" %>
 <% end %>
