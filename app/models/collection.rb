@@ -1,7 +1,7 @@
 class Collection < ApplicationRecord
   has_many :items, inverse_of: :collection, dependent: :destroy
   has_many :users, through: :items
-  validates :title, uniqueness: true
+  validates :title, presence: true
 
   def items_attributes=(item_attributes)
     binding.pry
