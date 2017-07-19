@@ -9,19 +9,14 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    binding.pry
     @collection = current_user.collections.new(title: params[:collection][:title])
-    @item = @collection.items.build(brand: params[:collection][:items_attributes]["0"][:brand], description: params[:collection][:items_attributes]["0"][:description], name: params[:collection][:items_attributes]["0"][:name], :id => params[:collection][:items_attributes]["0"][:id], user: current_user)#, collection_id: @collection.id)
+    @item = @collection.items.build(brand: params[:collection][:items_attributes]["0"][:brand], description: params[:collection][:items_attributes]["0"][:description], name: params[:collection][:items_attributes]["0"][:name], :id => params[:collection][:items_attributes]["0"][:id], user: current_user)
     @item.save
-    binding.pry
     if @collection.save
-      binding.pry
-
       redirect_to collection_path(@collection)
     else
-      binding.pry
       flash[:error] = "Sorry, please try again."
-      redirect_to new_collection_path
+      render :new
     end
   end
 
