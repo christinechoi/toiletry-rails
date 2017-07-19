@@ -15,41 +15,15 @@
   </div>
 <% end %>
 
-<%= form_for([@collection, @item], :url => collection_items_path) do |f| %>
+<p>
+  <%= form_for([@collection, @item], :url => collection_items_path) do |f| %>
 
-<table class="item" cellspacing="0">
-  <tr>
-    <td><%= f.label "Collection:  " %></td>
-    <td><%= f.select :collection_id, Collection.all.collect {|clx| [clx.title, clx.id]}, :selected => params[:collection_id] %></td>
-  </tr>
+  <%= render partial: 'form', :locals => {:f => f} %>
+    
+  <%= f.submit "Create Item", :class => "btn btn-default btn-med" %>
+  <% end %>
+</p>
 
-  <tr>
-    <td><%= f.label "Brand: " %></td>
-    <td><%= f.text_field :brand %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label "Name: " %></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-
-  <tr class="border">
-    <td><%= f.label "Description: " %></td>
-    <td><%= f.text_area :description, :size=>"19" %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label "Cost: " %></td>
-    <td><%= f.text_field :cost %></td>
-  </tr>
-  <br>
-</table>
-
-  <p>  
-    <%= f.submit "Create Item", :class => "btn btn-default btn-med" %>
-  </p>
-<% end %>
- 
 <p>
   <%= link_to 'Cancel', collections_path %>
 </p>

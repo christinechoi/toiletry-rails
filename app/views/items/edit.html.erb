@@ -1,35 +1,9 @@
 
+
 <p>
   <%= form_for([@collection, @item], :url => collection_item_path, method: :patch)  do |f| %>
-</p>
 
-<table class="item" cellspacing="0">
-  <tr>
-    <td><%= f.label "Collection:  " %></td>
-    <td><%= f.select :collection_id, Collection.all.collect {|clx| [clx.title, clx.id]}, :selected => params[:collection_id] %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label "Brand: " %></td>
-    <td><%= f.text_field :brand %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label "Name: " %></td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-
-  <tr class="border">
-    <td><%= f.label "Description: " %></td>
-    <td><%= f.text_area :description, :size=>"19" %></td>
-  </tr>
-
-  <tr>
-    <td><%= f.label "Cost: " %></td>
-    <td><%= f.text_field :cost, :class => 'cost', :value => (number_with_precision(f.object.cost, :precision => 2) || 0) %></td>
-  </tr>
-   <br>
-</table>
+  <%= render partial: 'form', :locals => {:f => f} %>
 
   <%= f.submit %>
   <% end %>
