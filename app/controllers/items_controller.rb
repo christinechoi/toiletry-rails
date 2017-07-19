@@ -16,12 +16,13 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = current_user.items.build(item_params)
+    @item.collection_id = params[:collection_id]
     if @item.save
-      # binding.pry
-      redirect_to collection_path(@item.collection_id)
+      binding.pry
+      redirect_to collection_item_path(@item.collection_id, @item.id)
     else
-      # binding.pry
       flash[:error] = "Sorry, please try again."
       render :new
     end
