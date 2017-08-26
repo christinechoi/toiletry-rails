@@ -1,20 +1,22 @@
 class CollectionsController < ApplicationController
   
   def index
-    @collections = Collection.all 
+    @collections = current_user.collections
   end
 
   def new
     @collection = Collection.new
-  end
+  end 
 
   def create
-    @collection = current_user.collections.new(title: params[:collection][:title])
-    @item = @collection.items.build(brand: params[:collection][:items_attributes]["0"][:brand], description: params[:collection][:items_attributes]["0"][:description], name: params[:collection][:items_attributes]["0"][:name], :id => params[:collection][:items_attributes]["0"][:id], user: current_user)
-    @item.save
+    @collection = current_user.collections.build(collection_params)
+    @collection.items.last.user_id = current_user.id
+    binding.pry
     if @collection.save
+      binding.pry
       redirect_to collection_path(@collection)
     else
+      binding.pry
       flash[:error] = "Sorry, please try again."
       render :new
     end
@@ -35,6 +37,6 @@ class CollectionsController < ApplicationController
   private
 
   def collection_params
-    params.require(:collection).permit(:title, :user_id, items_attributes: [:id, :name, :brand, :description])
+    params.require(:collection).permit(:title, :user_id, items_attributes: [:id, :name, :brand, :description, :purchase_date])
   end
 end
