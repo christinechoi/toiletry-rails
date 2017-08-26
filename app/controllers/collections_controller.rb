@@ -1,7 +1,7 @@
 class CollectionsController < ApplicationController
   
   def index
-    @collections = current_user.collections
+    @collections = current_user.collections.uniq
   end
 
   def new
@@ -11,12 +11,9 @@ class CollectionsController < ApplicationController
   def create
     @collection = current_user.collections.build(collection_params)
     @collection.items.last.user_id = current_user.id
-    binding.pry
     if @collection.save
-      binding.pry
       redirect_to collection_path(@collection)
     else
-      binding.pry
       flash[:error] = "Sorry, please try again."
       render :new
     end
