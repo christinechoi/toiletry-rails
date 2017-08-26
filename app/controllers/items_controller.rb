@@ -16,11 +16,9 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = current_user.items.build(item_params)
     @item.collection_id = params[:collection_id]
     if @item.save
-      binding.pry
       redirect_to collection_item_path(@item.collection_id, @item.id)
     else
       flash[:error] = "Sorry, please try again."
@@ -54,6 +52,6 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:collection_id, :brand, :name, :description, :cost) 
+    params.require(:item).permit(:collection_id, :brand, :name, :description, :cost, :purchase_date) 
   end
 end
