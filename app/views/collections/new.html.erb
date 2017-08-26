@@ -23,6 +23,10 @@
     <%= item_fields.label "Brand: " %>
     <%= item_fields.text_field :brand %>
     <br>
+    <br>
+    <%= item_fields.label "Purchase Date: " %>
+    <%= item_fields.date_field :purchase_date %> 
+    <br>
   <% end %>
 
   <%= f.submit "Create Collection", :class => "btn btn-default btn-med" %>
